@@ -1,0 +1,12 @@
+{{#if isSummariesLoading}}
+  <b>Loading...</b>
+{{else}}
+
+  <AssetLocationSummaries::SummariesTable
+    @summaries={{summariesAsRows}}
+    @onViewClicked={{action viewAssetLocations}}/>
+{{/if}}
+
+
+<AssetLocationSummaries::Locations
+  @locations={{assetLocations}}/>

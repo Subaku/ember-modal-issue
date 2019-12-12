@@ -1,0 +1,18 @@
+<EmberTable as |t|>
+  <t.head @columns={{summaryColumns}}/>
+  <t.body @rows={{@summaries}} as |b|>
+    <b.row as |tr|>
+      <tr.cell as |cell column row|>
+        {{#if (eq column.slug "location")}}
+          {{row.location.name}}
+        {{else if (eq column.slug "inventory")}}
+          {{row.assets}} &mdash; {{format-currency row.assetValue}}
+        {{else if (eq column.slug "non-assigned")}}
+          {{row.nonAssignedAssets}} &mdash; {{format-currency row.nonAssignedAssetValue}}
+        {{else if (eq column.slug "actions")}}
+          <button type="button" {{on "click" (fn @onViewClicked row.location)}}>View</button>
+        {{/if}}
+      </tr.cell>
+    </b.row>
+  </t.body>
+</EmberTable>

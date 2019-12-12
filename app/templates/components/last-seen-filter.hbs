@@ -1,0 +1,29 @@
+<PowerSelect
+  @options={{@visionOptions}}
+  @onChange={{@onVisionChanged}}
+  @renderInPlace={{true}}
+  @placeholder="Please Select"
+  @selected={{@visionValue}}
+  @triggerClass="vision-select"
+  @dropdownClass="vision-select-dropdown"
+  as |visionOption|>
+  {{visionOption}}
+</PowerSelect>
+
+<PowerSelectMultiple
+  @selected={{this.selectedTimeExpression}}
+  @options={{this.timeTypeOptions}}
+  @renderInPlace={{true}}
+  @searchEnabled={{true}}
+  @placeholder={{this.timePlaceholder}}
+  @noMatchesMessage={{this.timeNoMatchMsg}}
+  @searchMessage={{this.timeInstruction}}
+  @matcher={{action this.timeTypeMatcher}}
+  @onInput={{action this.onTimeInput}}
+  @onKeydown={{this.onKeyThing}}
+  @onChange={{action this.onTimeChange}}
+  @triggerClass="time-type-select"
+  @dropdownClass="time-type-select-dropdown"
+  as |timeType|>
+  {{timeType}}
+</PowerSelectMultiple>
